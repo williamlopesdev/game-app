@@ -1,10 +1,23 @@
 package br.senai.sp.jandira.gamesapp.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Game {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="tbl_game")
+public class Game implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String titulo;
 	private String produtora;
 	private boolean zerado;
